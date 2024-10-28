@@ -1,8 +1,7 @@
 %define	upstream_name    Params-ValidationCompiler
-%define upstream_version 0.27
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
+Version:	0.31
 Release:	3
 
 Summary:	Optimized subroutine parameter validator
@@ -10,13 +9,13 @@ Summary:	Optimized subroutine parameter validator
 
 License:	Artistic 2.0
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Params/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/pod/Params::ValidationCompiler
+Source0:	http://www.cpan.org/modules/by-module/Params/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:  perl-devel
 BuildRequires:	perl(namespace::clean)
 BuildRequires:	perl(Module::Build)
-BuildRequires:	perl(Params::Validate) >= 0.72
+BuildRequires:	perl(Params::Validate)
 
 BuildArch:	noarch
 
@@ -31,14 +30,14 @@ In addition to type checks, it also supports parameter defaults,
 optional parameters, and extra "slurpy" parameters.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%autosetup -p1 -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL installdirs=vendor destdir=%{buildroot}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc Changes 
