@@ -12,6 +12,7 @@ Group:		Development/Perl
 Url:		https://metacpan.org/pod/Params::ValidationCompiler
 Source0:	http://www.cpan.org/modules/by-module/Params/%{upstream_name}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:  perl-devel
 BuildRequires:	perl(namespace::clean)
 BuildRequires:	perl(Module::Build)
